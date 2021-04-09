@@ -52,6 +52,9 @@ jobs:
           name: lib
           path: lib
 
+      - name: Install dependencies
+        run: yarn install --check-files --frozen-lockfile
+
       - name: projen basic init test
         run: ./bin/projen new typescript-project
         shell: bash
