@@ -52,14 +52,6 @@ jobs:
           name: dist
           path: dist
 
-      - name: extract dist
-        run: yarn extract
-        shell: bash
-
-      - name: tests
-        run: yarn test
-        shell: bash
-
       - name: projen basic init test
         run: projen new typescript-project
         shell: bash
