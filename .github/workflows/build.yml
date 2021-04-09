@@ -56,5 +56,5 @@ jobs:
         run: yarn install --check-files --frozen-lockfile
 
       - name: projen basic init test
-        run: ./bin/projen new typescript-project
+        run: ./bin/projen new typescript-app
         shell: bash
