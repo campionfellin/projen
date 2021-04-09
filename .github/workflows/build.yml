@@ -4,6 +4,7 @@ name: Build
 on:
   pull_request: {}
   workflow_dispatch: {}
+  push: {}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,5 +35,38 @@ jobs:
       - name: Commit and push changes (if any)
         run: 'git diff --exit-code || (git commit -am "chore: self mutation" && git push
           origin HEAD:${{ github.event.pull_request.head.ref }})'
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
     container:
       image: jsii/superchain
+
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: extract dist
+        run: yarn extract
+        shell: bash
+
+      - name: tests
+        run: yarn test
+        shell: bash
+
+      - name: projen basic init test
+        run: projen new typescript-project
+        shell: bash
