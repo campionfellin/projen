@@ -53,7 +53,8 @@ jobs:
           path: dist
 
       - name: extract
-        run: ls |
+        run: pwd |
+             cd /tmp |
              npm install dist/js/*.tgz |
              export PATH=${staging}/node_modules/.bin:$PATH |
              echo "${staging}/node_modules/.bin/" >> $GITHUB_PATH
