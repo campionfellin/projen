@@ -44,19 +44,14 @@ jobs:
         os: [windows-latest, macos-latest, ubuntu-latest]
     needs: build
     steps:
+      - uses: actions/checkout@v2
+
       - name: download artifact
         uses: actions/download-artifact@v2
         with:
           name: dist
           path: dist
 
-      - name: extract
-        run: pwd |
-             cd /tmp |
-             npm install dist/js/*.tgz |
-             export PATH=${staging}/node_modules/.bin:$PATH |
-             echo "${staging}/node_modules/.bin/" >> $GITHUB_PATH
-
       - name: projen basic init test
-        run: projen new typescript-project
+        run: ./bin/projen new typescript-project
         shell: bash
