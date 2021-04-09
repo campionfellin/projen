@@ -52,6 +52,12 @@ jobs:
           name: dist
           path: dist
 
+      - name: extract
+        run: ls |
+             npm install dist/js/*.tgz |
+             export PATH=${staging}/node_modules/.bin:$PATH |
+             echo "${staging}/node_modules/.bin/" >> $GITHUB_PATH
+
       - name: projen basic init test
         run: projen new typescript-project
         shell: bash
