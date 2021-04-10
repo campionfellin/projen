@@ -61,7 +61,10 @@ jobs:
       - name: extract
         run: npm install -g ./dist/js/*.tgz
 
+      - name: mkdir .git
+        run: mkdir .git
+
       - name: new project
         working-directory: ${{ runner.temp }}
-        run: no | projen new typescript
+        run: projen new typescript
         shell: bash
