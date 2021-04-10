@@ -58,8 +58,13 @@ jobs:
       - name: extract
         run: pwd
 
-      - name: extract
-        run: sudo npm install -g dist/js/*.tgz
+      - name: extract windows
+        run: |
+             if [ "$RUNNER_OS" == "Windows" ]; then
+                  npm install -g dist/js/*.tgz
+             else
+                  sudo npm install -g dist/js/*.tgz
+             fi
 
       - name: mkdir .git
         working-directory: ${{ runner.temp }}
