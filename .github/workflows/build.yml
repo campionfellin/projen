@@ -59,7 +59,7 @@ jobs:
         run: pwd
 
       - name: extract
-        run: sudo npm install -g ./dist/js/*.tgz
+        run: sudo npm install -g dist/js/*.tgz
 
       - name: mkdir .git
         working-directory: ${{ runner.temp }}
