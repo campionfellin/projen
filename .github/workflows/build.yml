@@ -53,10 +53,10 @@ jobs:
           path: dist
 
       - name: extract
-        run: ls -la
+        run: pwd
 
       - name: extract
-        working-directory: ../test
+        working-directory: $HOME
         run: ls -la
 
       - name: Install dependencies
