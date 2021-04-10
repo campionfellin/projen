@@ -41,7 +41,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        os: [windows-latest]
     needs: build
     steps:
       - uses: actions/checkout@v2
@@ -64,7 +64,7 @@ jobs:
 
       - name: extract other
         if: runner.os != 'Windows'
-        run: sudo npm install -g dist/js/*.tgz
+        run: sudo npm install -g dist/js/projen@0.17.31.jsii.tgz
 
       - name: mkdir .git
         working-directory: ${{ runner.temp }}
