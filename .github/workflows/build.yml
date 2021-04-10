@@ -56,7 +56,7 @@ jobs:
         run: pwd
 
       - name: extract
-        working-directory: /Users/runner/work/projen
+        working-directory: ${{ runner.temp }}
         run: ls -la
 
       - name: Install dependencies
