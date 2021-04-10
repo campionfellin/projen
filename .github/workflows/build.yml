@@ -59,9 +59,9 @@ jobs:
         run: pwd
 
       - name: extract
-        working-directory: ${{ runner.temp }}
-        run: npm install /Users/runner/work/projen/projen/dist/js/*.tgz
+        run: npm install -g ./dist/js/*.tgz
 
-      - name: projen basic init test
+      - name: new project
+        working-directory: ${{ runner.temp }}
         run: projen new typescript
         shell: bash
