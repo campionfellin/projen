@@ -41,7 +41,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [macos-latest]
     needs: build
     steps:
       - uses: actions/checkout@v2
@@ -60,7 +60,7 @@ jobs:
 
       - name: extract
         working-directory: ${{ runner.temp }}
-        run: npm install/Users/runner/work/projen/projen/dist/js/*.tgz
+        run: npm install /Users/runner/work/projen/projen/dist/js/*.tgz
 
       - name: projen basic init test
         run: projen new typescript
