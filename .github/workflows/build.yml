@@ -53,7 +53,8 @@ jobs:
           path: dist
 
       - name: extract
-        run: npm install dist/js/*.tgz
+        working-directory: ../test
+        run: npm install ../projen/dist/js/*.tgz
 
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
