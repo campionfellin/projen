@@ -60,7 +60,7 @@ jobs:
 
       - name: extract windows
         if: runner.os == 'Windows'
-        run: npm install -g dist/js/*.tgz
+        run: npm install -g dist\js\*.tgz
 
       - name: extract other
         if: runner.os != 'Windows'
