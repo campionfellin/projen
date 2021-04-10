@@ -52,16 +52,16 @@ jobs:
           name: dist
           path: dist
 
+      - name: Install dependencies
+        run: yarn install --check-files --frozen-lockfile
+
       - name: extract
         run: pwd
 
       - name: extract
         working-directory: ${{ runner.temp }}
-        run: ls -la
-
-      - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile
+        run: npm install/Users/runner/work/projen/projen/dist/js/*.tgz
 
       - name: projen basic init test
-        run: ./bin/projen new typescript
+        run: projen new typescript
         shell: bash
