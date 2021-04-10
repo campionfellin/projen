@@ -63,5 +63,5 @@ jobs:
 
       - name: new project
         working-directory: ${{ runner.temp }}
-        run: projen new typescript
+        run: no | projen new typescript
         shell: bash
