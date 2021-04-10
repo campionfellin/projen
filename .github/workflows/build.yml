@@ -56,7 +56,7 @@ jobs:
         run: pwd
 
       - name: extract
-        working-directory: $HOME
+        working-directory: /Users/runner/work
         run: ls -la
 
       - name: Install dependencies
