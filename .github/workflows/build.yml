@@ -52,8 +52,8 @@ jobs:
           name: dist
           path: dist
 
-      - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile
+      # - name: Install dependencies
+      #   run: yarn install --check-files --frozen-lockfile
 
       - name: extract
         run: pwd
@@ -61,7 +61,6 @@ jobs:
       - name: extract windows
         if: runner.os == 'Windows'
         run: npm install -g dist\js\projen@0.17.31.jsii.tgz
-
 
       - name: extract other
         if: runner.os != 'Windows'
