@@ -58,6 +58,10 @@ jobs:
       - name: extract
         run: pwd
 
+      - name: del windows
+        if: runner.os == 'Windows'
+        run: del node_modules
+
       - name: extract windows
         if: runner.os == 'Windows'
         run: npm install -g dist\js\projen@0.17.31.jsii.tgz
